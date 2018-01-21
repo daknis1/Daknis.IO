@@ -8,7 +8,7 @@ namespace Daknis.IO
     {
         public TextReader TextReader { get; protected set; }
 
-        public DaknisTextReader()
+        protected DaknisTextReader()
         {
 
         }
