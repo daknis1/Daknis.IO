@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Daknis.IO
 {
-    public interface ITextWriter
+    public interface ITextWriter : IDisposable
     {
         Encoding Encoding { get; }
         IFormatProvider FormatProvider { get; }

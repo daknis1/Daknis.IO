@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Daknis.IO
 {
-    public abstract class DaknisTextReader : ITextReader, IDisposable
+    public abstract class DaknisTextReader : ITextReader
     {
         public TextReader TextReader { get; protected set; }
 
