@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Daknis.IO
 {
-    public class DaknisStreamReader : DaknisTextReader
+    public class DaknisStreamReader : DaknisTextReader, IStreamReader
     {
         private StreamReader streamReader;
 
@@ -46,7 +46,7 @@ namespace Daknis.IO
 
         public DaknisStreamReader(StreamReader reader)
         {
-            StreamReader = reader;
+            StreamReader = reader ?? throw new ArgumentNullException(nameof(reader));
         }
 
         public DaknisStreamReader(Stream stream) : base()
