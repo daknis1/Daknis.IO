@@ -4,9 +4,21 @@ using System.Text;
 
 namespace Daknis.IO
 {
-    public class DaknisStreamReader : IStreamReader
+    public class DaknisStreamReader : DaknisTextReader
     {
-        public StreamReader StreamReader { get; private set; }
+        private StreamReader streamReader;
+
+        public StreamReader StreamReader
+        {
+            get
+            {
+                return streamReader;
+            }
+            private set
+            {
+                TextReader = streamReader = value;
+            }
+        }
 
         public Stream BaseStream
         {
@@ -32,7 +44,12 @@ namespace Daknis.IO
             }
         }
 
-        public DaknisStreamReader(Stream stream)
+        public DaknisStreamReader(StreamReader reader)
+        {
+            StreamReader = reader;
+        }
+
+        public DaknisStreamReader(Stream stream) : base()
         {
             StreamReader = new StreamReader(stream);
         }
@@ -62,9 +79,9 @@ namespace Daknis.IO
             StreamReader = new StreamReader(stream, encoding, detectEncodingFromByteOrderMarks, bufferSize, leaveOpen);
         }
 
-        public void Open()
+        public void DiscardBufferedData()
         {
-            throw new NotImplementedException();
+            StreamReader.DiscardBufferedData();
         }
     }
 }

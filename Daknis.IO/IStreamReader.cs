@@ -3,13 +3,14 @@ using System.Text;
 
 namespace Daknis.IO
 {
-    public interface IStreamReader
+    public interface IStreamReader : ITextReader
     {
+        StreamReader StreamReader { get; }
+
         Stream BaseStream { get; }
         Encoding CurrentEncoding { get; }
         bool EndOfStream { get; }
-        StreamReader StreamReader { get; }
 
-        void Open();
+        void DiscardBufferedData();
     }
 }
