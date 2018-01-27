@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Daknis.IO
 {
-    public abstract class DaknisTextWriter : ITextWriter
+    public class DaknisTextWriter : ITextWriter
     {
         public TextWriter TextWriter { get; protected set; }
 

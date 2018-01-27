@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Daknis.IO
 {
-    public interface IStreamWriter
+    public interface IStreamWriter : ITextWriter
     {
         StreamWriter StreamWriter { get; }
 

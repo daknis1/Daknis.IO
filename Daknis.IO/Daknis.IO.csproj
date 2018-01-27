@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>David Knise</Authors>
     <Description>Components for interacting with the file system for Daknis Software applications.</Description>
-    <Version>0.0.7</Version>
+    <Version>0.0.10</Version>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
