@@ -120,7 +120,7 @@ We use [SemVer](http://semver.org/) for versioning.
 
 * **David Knise** - [daknis1](https://github.com/daknis1)
 
-See also the list of [contributors](https://github.com/daknis1//contributors) who participated in this project.
+See also the list of [contributors](https://github.com/daknis1/Daknis.IO/contributors) who participated in this project.
 
 ## License
 
