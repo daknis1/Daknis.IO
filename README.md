@@ -4,7 +4,7 @@ Wrappers around the .NET Standard libraries to provide interfaces that are usefu
 
 ## Installing
 
-I am in the process of getting a code signing cert from Comodo. After I get that, this package will be avialable on nuget.org.
+I am in the process of getting a code signing cert from Comodo. After I get that, this package will be available on nuget.org.
 
 I (daknis1) work at Microsoft and brought these class wrappers and others into work. There is a possibility that these will be released through an official Microsoft channel, contributing to the `System.IO` namespace. If and when that occurs, I will be deprecating my library in favor of the Microsoft published ones, that will also likely be published by myself. Currently, there is no official support or coordination with the .NET team.
 
