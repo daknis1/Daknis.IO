@@ -21,24 +21,24 @@ using Daknis.IO;
 ...
 public class MyClass
 {
-	private readonly IFile File;
+    private readonly IFile File;
 
-	public MyClass(ISvReader svReader)
-	{
-		SvReader = svReader ?? throw new ArgumentNullException(nameof(svReader));
-	}
+    public MyClass(ISvReader svReader)
+    {
+        SvReader = svReader ?? throw new ArgumentNullException(nameof(svReader));
+    }
 
-	public string ReadFile(string filePath)
-	{
-		string contents = string.Empty;
+    public string ReadFile(string filePath)
+    {
+        string contents = string.Empty;
 
-		if (File.Exists(filePath))
-		{
-			contents = File.ReadAllText(filePath);
-		}
+        if (File.Exists(filePath))
+        {
+            contents = File.ReadAllText(filePath);
+        }
 
-		return contents;
-	}
+        return contents;
+    }
 }
 
 ```
@@ -52,57 +52,57 @@ using xUnit;
 
 public class MyClassTests
 {
-	private readonly Mock<IFile> MockFile;
+    private readonly Mock<IFile> MockFile;
 
-	public MyClassTests()
-	{
-		MockFile = new Mock<IFile>();
-		// Setup global mock returns
-		MockFile.Setup(mock => mock.ReadAllText(It.IsAny<string>())).Returns("MockFile.ReadAllText.mock");
-	}
+    public MyClassTests()
+    {
+        MockFile = new Mock<IFile>();
+        // Setup global mock returns
+        MockFile.Setup(mock => mock.ReadAllText(It.IsAny<string>())).Returns("MockFile.ReadAllText.mock");
+    }
 
-	private MyClass GetMockedMyClass()
-	{
-		return new MyClass(MockFile.Object)
-	}
+    private MyClass GetMockedMyClass()
+    {
+        return new MyClass(MockFile.Object)
+    }
 
-	[Fact]
-	public void ReadFile_FileExists()
-	{
-		// It returns the contents of the file
+    [Fact]
+    public void ReadFile_FileExists()
+    {
+        // It returns the contents of the file
 
-		// Setup local mock return
-		MockFile.Setup(mock => mock.Exists(It.IsAny<string>())).Returns(true);
+        // Setup local mock return
+        MockFile.Setup(mock => mock.Exists(It.IsAny<string>())).Returns(true);
 
-		MyClass myClass = GetMockedMyClass();
-		string actual = myClass.ReadFile("filePath.fake");
-		Assert.Equal("MockFile.ReadAllText.mock", actual);
-		
-		// It checks if the file exists
-		MockFile.Verify(mock => mock.Exists("filePath.fake"), Times.Once);
+        MyClass myClass = GetMockedMyClass();
+        string actual = myClass.ReadFile("filePath.fake");
+        Assert.Equal("MockFile.ReadAllText.mock", actual);
+        
+        // It checks if the file exists
+        MockFile.Verify(mock => mock.Exists("filePath.fake"), Times.Once);
 
-		// It reads the file
-		MockFile.Verify(mock => mock.ReadAllText("filePath.fake"), Times.Once);
-	
+        // It reads the file
+        MockFile.Verify(mock => mock.ReadAllText("filePath.fake"), Times.Once);
+    
 
-	[Fact]
-	public void ReadFile_FileDoesNotExists()
-	{
-		// It returns string.Empty
+    [Fact]
+    public void ReadFile_FileDoesNotExists()
+    {
+        // It returns string.Empty
 
-		// Setup local mock return
-		MockFile.Setup(mock => mock.Exists(It.IsAny<string>())).Returns(false);
+        // Setup local mock return
+        MockFile.Setup(mock => mock.Exists(It.IsAny<string>())).Returns(false);
 
-		MyClass myClass = GetMockedMyClass();
-		string actual = myClass.ReadFile("filePath.fake");
-		Assert.Equal(string.Empty, actual);
+        MyClass myClass = GetMockedMyClass();
+        string actual = myClass.ReadFile("filePath.fake");
+        Assert.Equal(string.Empty, actual);
 
-		// It checks if the file exists
-		MockFile.Verify(mock => mock.Exists("filePath.fake"), Times.Once);
+        // It checks if the file exists
+        MockFile.Verify(mock => mock.Exists("filePath.fake"), Times.Once);
 
-		// It doesn't read the file
-		MockFile.Verify(mock => mock.ReadAllText("filePath.fake"), Times.Never);
-	}
+        // It doesn't read the file
+        MockFile.Verify(mock => mock.ReadAllText("filePath.fake"), Times.Never);
+    }
 }
 ```
 
