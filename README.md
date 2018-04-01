@@ -14,7 +14,7 @@ I (daknis1) work at Microsoft and brought these class wrappers and others into w
 
 To benefit from the wrappers, you must inject the interface into the class. This is best used with a DI factory pattern or use in an application that leverages an IoC container.
 
-By storing the dependency as the same name of the class it wraps, even if you import `System.IO`, you've shadows the underlying `System.IO.File` static class invocations, so you will always call the wrapper.
+By storing the dependency as the same name of the class it wraps, even if you import `System.IO`, you've shadowed the underlying `System.IO.File` static class invocations, so you will always call the wrapper.
 
 ```
 using Daknis.IO;
