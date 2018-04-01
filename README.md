@@ -124,4 +124,4 @@ See also the list of [contributors](https://github.com/daknis1//contributors) wh
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
